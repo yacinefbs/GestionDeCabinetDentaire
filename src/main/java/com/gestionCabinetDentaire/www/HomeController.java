@@ -53,4 +53,9 @@ public class HomeController {
 		return "login";
 	}
 	
+	@RequestMapping(value="/accueil")
+	public String accueil(){
+		return "accueil";
+	}
+	
 }

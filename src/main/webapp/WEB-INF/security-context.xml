@@ -9,8 +9,9 @@
     <!-- We will be defining all security related configurations in this file -->
     
     <http auto-config="true" use-expressions="true">
-        <intercept-url pattern="/**" access="isAuthenticated()"/> <!-- this means all URL in this app will be checked if user is authenticated -->
-        <form-login login-page="/login" default-target-url="/login" authentication-failure-url="/login?error=true" /> <!-- We will just use the built-in form login page in Spring -->
+		<intercept-url pattern="/login" access="isAnonymous()" /> <!-- this means all URL in this app will be checked if user is authenticated -->
+		<intercept-url pattern="/**" access="isAuthenticated()" />
+        <form-login login-page="/login" default-target-url="/accueil" authentication-failure-url="/login?error=true" /> <!-- We will just use the built-in form login page in Spring -->
         <logout logout-url="/logout" logout-success-url="/index"/> <!-- the logout url we will use in JSP -->
     </http>
     
