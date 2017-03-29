@@ -32,6 +32,7 @@ public class Personne implements Serializable {
 	private String tel;
 	private String profession;
 	private String adresse;
+	private String ville;
 	private String email;
 	private String etat;
 
@@ -41,7 +42,7 @@ public class Personne implements Serializable {
 	}
 
 	public Personne(String nom, String prenom, String cin, int numAssurance, String sexe, Date dateNaissance,
-			String tel, String profession, String adresse, String email, String etat) {
+			String tel, String profession, String adresse, String ville, String email, String etat) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -52,6 +53,7 @@ public class Personne implements Serializable {
 		this.tel = tel;
 		this.profession = profession;
 		this.adresse = adresse;
+		this.ville = ville;
 		this.email = email;
 		this.etat = etat;
 	}
@@ -134,6 +136,14 @@ public class Personne implements Serializable {
 
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
+	}
+	
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
 	}
 
 	public String getEmail() {
