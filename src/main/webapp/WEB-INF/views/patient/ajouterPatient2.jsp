@@ -517,7 +517,7 @@
             </div><!-- /.col -->
           </div><!-- /.row -->
 		
-		<f:form modelAttribute="patientForm" method="post" action="patient/savePatient">
+		<f:form modelAttribute="patientForm" method="post" action="ajouterPatient">
           <div class="row">
             <div class="col-md-12">
               <div class="box">
@@ -628,7 +628,7 @@
 							<f:errors path="patient.ville" />
 	                    </div>
 	                    <div class="col-md-6">
-							<label>CIN :</label>
+							<label>Email :</label>
 							<f:input path="patient.email" class="form-control input-sm" />
 							<f:errors path="patient.email" />
 	                    </div>

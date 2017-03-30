@@ -14,10 +14,10 @@ public class Patient extends Personne implements Serializable {
 
 	
 	@OneToMany(mappedBy="patient", fetch=FetchType.LAZY)
-	private Collection<Dossier> dossiers;
+	private Collection<Dossier> dossiers = null;
 
 	@OneToMany(mappedBy="patient", fetch=FetchType.LAZY)
-	private Collection<Rdv> rdvs;
+	private Collection<Rdv> rdvs = null;
 	
 	public Collection<Dossier> getDossiers() {
 		return dossiers;

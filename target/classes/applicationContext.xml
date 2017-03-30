@@ -14,6 +14,47 @@
 		<property name="daoCategorie" ref="daoCategorie"></property>
 	</bean>
 	
+	<bean id="daoPatient" class="com.gestionCabinetDentaire.www.dao.PatientDaoImpl"></bean>
+	<bean id="metierPatient" class="com.gestionCabinetDentaire.www.metier.PatientMetierImpl">
+		<property name="daoPatient" ref="daoPatient"></property>
+	</bean>
+	
+	<bean id="daoDossier" class="com.gestionCabinetDentaire.www.dao.DossierDaoImpl"></bean>
+	<bean id="metierDossier" class="com.gestionCabinetDentaire.www.metier.DossierMetierImpl">
+		<property name="daoDossier" ref="daoDossier"></property>
+	</bean>
+	
+	<bean id="daoAdmin" class="com.gestionCabinetDentaire.www.dao.AdminDaoImpl"></bean>
+	<bean id="metierAdmin" class="com.gestionCabinetDentaire.www.metier.AdminMetierImpl">
+		<property name="daoAdmin" ref="daoAdmin"></property>
+	</bean>
+	
+	<bean id="daoInfirmier" class="com.gestionCabinetDentaire.www.dao.InfirmierDaoImpl"></bean>
+	<bean id="metierInfirmier" class="com.gestionCabinetDentaire.www.metier.InfirmierMetierImpl">
+		<property name="daoInfirmier" ref="daoInfirmier"></property>
+	</bean>
+	
+	<bean id="daoMedecin" class="com.gestionCabinetDentaire.www.dao.MedecinDaoImpl"></bean>
+	<bean id="metierMedecin" class="com.gestionCabinetDentaire.www.metier.MedecinMetierImpl">
+		<property name="daoMedecin" ref="daoMedecin"></property>
+	</bean>
+	
+	<bean id="daoOrdonance" class="com.gestionCabinetDentaire.www.dao.OrdonanceDaoImpl"></bean>
+	<bean id="metierOrdonance" class="com.gestionCabinetDentaire.www.metier.OrdonanceMetierImpl">
+		<property name="daoOrdonance" ref="daoOrdonance"></property>
+	</bean>
+	
+	<bean id="daoPaiement" class="com.gestionCabinetDentaire.www.dao.PaiementDaoImpl"></bean>
+	<bean id="metierPaiement" class="com.gestionCabinetDentaire.www.metier.PaiementMetierImpl">
+		<property name="daoPaiement" ref="daoPaiement"></property>
+	</bean>
+	
+	<bean id="daoRdv" class="com.gestionCabinetDentaire.www.dao.RdvDaoImpl"></bean>
+	<bean id="metierRdv" class="com.gestionCabinetDentaire.www.metier.RdvMetierImpl">
+		<property name="daoRdv" ref="daoRdv"></property>
+	</bean>
+	
+	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://localhost:3306/gestioncabinetdentaire"/>

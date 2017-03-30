@@ -9,9 +9,9 @@
 		<param-value>
 			/WEB-INF/spring/appServlet/servlet-context.xml
 			classpath*:applicationContext.xml
-			/WEB-INF/security-context.xml
 		</param-value>
 	</context-param>
+<!-- 	/WEB-INF/security-context.xml -->
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
@@ -26,14 +26,14 @@
 <!-- 	</session-config> -->
 	
 	<!-- Define a filter to enable Spring Security, be sure to use the suggested name 'springSecurityFilterChain' -->
-	<filter>
-	    <filter-name>springSecurityFilterChain</filter-name>
-	    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-	</filter>
-	<filter-mapping>
-	    <filter-name>springSecurityFilterChain</filter-name>
-	    <url-pattern>/*</url-pattern>
-	</filter-mapping>
+<!-- 	<filter> -->
+<!-- 	    <filter-name>springSecurityFilterChain</filter-name> -->
+<!-- 	    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class> -->
+<!-- 	</filter> -->
+<!-- 	<filter-mapping> -->
+<!-- 	    <filter-name>springSecurityFilterChain</filter-name> -->
+<!-- 	    <url-pattern>/*</url-pattern> -->
+<!-- 	</filter-mapping> -->
 
 	<!-- Processes application requests -->
 	<servlet>

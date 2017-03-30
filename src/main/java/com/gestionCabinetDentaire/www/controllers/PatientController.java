@@ -5,11 +5,14 @@ import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.gestionCabinetDentaire.www.metier.IPatientMetier;
+import com.gestionCabinetDentaire.www.metier.PatientMetierImpl;
 import com.gestionCabinetDentaire.www.models.PatientForm;
 
 /**
@@ -20,11 +23,18 @@ public class PatientController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(PatientController.class);
 	
+	@Autowired
+	private IPatientMetier metierPatient = new PatientMetierImpl();
 	
-	@RequestMapping(value="/patient/savePatient")
+	@RequestMapping(value="patient/ajouterPatient")
 	public String ajouterPatient(@Valid PatientForm pf, BindingResult bindingResult, Model model){
 		System.out.println("nom : " + pf.getPatient().getNom());
-		return "/patient/ajouterPatient";
+		pf.getPatient().setDossiers(null);
+		pf.getPatient().setRdvs(null);
+		pf.getPatient().setNumAssurance(0);
+		metierPatient.ajouterPatient(pf.getPatient());
+		System.out.println("Ajout avec succès !!!");
+		return "/patient/ajouterPatient2";
 	}
 	
 	@RequestMapping(value="/patient/ajouterPatient2")
