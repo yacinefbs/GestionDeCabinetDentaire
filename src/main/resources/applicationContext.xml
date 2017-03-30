@@ -54,6 +54,21 @@
 		<property name="daoRdv" ref="daoRdv"></property>
 	</bean>
 	
+	<bean id="daoSecretaire" class="com.gestionCabinetDentaire.www.dao.SecretaireDaoImpl"></bean>
+	<bean id="metierSecretaire" class="com.gestionCabinetDentaire.www.metier.SecretaireMetierImpl">
+		<property name="daoSecretaire" ref="daoSecretaire"></property>
+	</bean>
+	
+	<bean id="daoSpecialite" class="com.gestionCabinetDentaire.www.dao.SpecialiteDaoImpl"></bean>
+	<bean id="metierSpecialite" class="com.gestionCabinetDentaire.www.metier.SpecialiteMetierImpl">
+		<property name="daoSpecialite" ref="daoSpecialite"></property>
+	</bean>
+	
+	<bean id="daoVisite" class="com.gestionCabinetDentaire.www.dao.VisiteDaoImpl"></bean>
+	<bean id="metierVisite" class="com.gestionCabinetDentaire.www.metier.VisiteMetierImpl">
+		<property name="daoVisite" ref="daoVisite"></property>
+	</bean>
+	
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>

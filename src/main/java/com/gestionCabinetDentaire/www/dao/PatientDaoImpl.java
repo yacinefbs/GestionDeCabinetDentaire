@@ -22,7 +22,6 @@ public class PatientDaoImpl implements IPatientDao {
 		System.out.println(p.getPrenom());
 		System.out.println(p.getProfession());
 		System.out.println(p.getDateNaissance());
-		System.out.println("col dossiers : " + p.getDossiers().size());
 		System.out.println("col rdv :" + p.getRdvs().size());
 		System.out.println(p.getCin());
 		System.out.println(p.getTel());

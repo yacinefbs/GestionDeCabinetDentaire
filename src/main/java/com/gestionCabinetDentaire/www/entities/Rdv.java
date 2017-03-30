@@ -28,7 +28,7 @@ public class Rdv implements Serializable {
 	private Medecin medecin;
 
 	@ManyToOne
-	@JoinColumn(name="idPatient")
+	@JoinColumn(name="idPatient", nullable=true)
 	private Patient patient; //new patient() en cas d'erreur
 	
 	
