@@ -48,4 +48,10 @@ public class RdvMetierImpl implements IRdvMetier {
 		// TODO Auto-generated method stub
 		return daoRdv.findAllRdv();
 	}
+	
+	@Override
+	public List<Rdv> findRdsByPatientID(Long idPatient) {
+		// TODO Auto-generated method stub
+		return daoRdv.findRdsByPatientID(idPatient);
+	}
 }

@@ -47,4 +47,10 @@ public class DossierMetierImpl implements IDossierMetier {
 		// TODO Auto-generated method stub
 		return daoDossier.findAllDossier();
 	}
+	
+	@Override
+	public List<Dossier> findDossiersByPatientID(Long idPatient) {
+		// TODO Auto-generated method stub
+		return daoDossier.findDossiersByPatientID(idPatient);
+	}
 }

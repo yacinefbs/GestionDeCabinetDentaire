@@ -10,4 +10,5 @@ public interface IDossierMetier {
 	public void supprimerDossier(Long idDossier);
 	public Dossier findDossierById(Long idDossier);
 	public List<Dossier> findAllDossier();
+	public List<Dossier> findDossiersByPatientID(Long idPatient);
 }

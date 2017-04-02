@@ -46,5 +46,12 @@ public class DossierDaoImpl implements IDossierDao {
 		Query req = em.createQuery("select d from Dossier d");
 		return req.getResultList();
 	}
+	
+	@Override
+	public List<Dossier> findDossiersByPatientID(Long idPatient) {
+		// TODO Auto-generated method stub
+		Query req = em.createQuery("select d from Dossier d where idPatient=" + idPatient);
+		return req.getResultList();
+	}
 
 }

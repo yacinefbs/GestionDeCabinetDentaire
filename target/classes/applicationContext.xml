@@ -69,6 +69,11 @@
 		<property name="daoVisite" ref="daoVisite"></property>
 	</bean>
 	
+	<bean id="daoPersonne" class="com.gestionCabinetDentaire.www.dao.PersonneDaoImpl"></bean>
+	<bean id="metierPersonne" class="com.gestionCabinetDentaire.www.metier.PersonneMetierImpl">
+		<property name="daoPersonne" ref="daoPersonne"></property>
+	</bean>
+	
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>

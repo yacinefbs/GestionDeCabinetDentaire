@@ -1,5 +1,6 @@
 package com.gestionCabinetDentaire.www.metier;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -45,7 +46,7 @@ public class PatientMetierImpl implements IPatientMetier {
 	}
 
 	@Override
-	public List<Patient> findAllPatients() {
+	public Collection<Patient> findAllPatients() {
 		// TODO Auto-generated method stub
 		return daoPatient.findAllPatients();
 	}

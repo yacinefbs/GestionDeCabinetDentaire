@@ -10,4 +10,5 @@ public interface IRdvMetier {
 	public void supprimerRdv(Long idRdv);
 	public Rdv findRdvById(Long idRdv);
 	public List<Rdv> findAllRdv();
+	public List<Rdv> findRdsByPatientID(Long idPatient);
 }

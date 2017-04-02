@@ -28,8 +28,8 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@Autowired
-	ICategorieMetier metierCategorie = new CategorieMetierImpl();
+//	@Autowired
+//	ICategorieMetier metierCategorie = new CategorieMetierImpl();
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -38,9 +38,9 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		Categorie c = new Categorie();
-		c.setNomCategorie("Cat1");
-		metierCategorie.ajouterCategorie(c);
+//		Categorie c = new Categorie();
+//		c.setNomCategorie("Cat1");
+//		metierCategorie.ajouterCategorie(c);
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);

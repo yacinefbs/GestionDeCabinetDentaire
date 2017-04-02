@@ -1,5 +1,6 @@
 package com.gestionCabinetDentaire.www.dao;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -28,8 +29,10 @@ public class PatientDaoImpl implements IPatientDao {
 		System.out.println(p.getAdresse());
 		System.out.println(p.getVille());
 		System.out.println(p.getEmail());
-		System.out.println("col dossiers : " + p.getDossiers().size());
-		System.out.println("col rdv :" + p.getRdvs().size());
+//		System.out.println("col dossiers : " + p.getDossiers().size());
+//		System.out.println("col rdv :" + p.getRdvs().size());
+		
+		
 
 		em.persist(p);
 		return p;
@@ -44,7 +47,7 @@ public class PatientDaoImpl implements IPatientDao {
 	@Override
 	public void supprimerPatient(Patient p) {
 		// TODO Auto-generated method stub
-		em.remove(p);
+		em.remove(em.merge(p));
 	}
 
 	@Override
@@ -55,7 +58,7 @@ public class PatientDaoImpl implements IPatientDao {
 	}
 
 	@Override
-	public List<Patient> findAllPatients() {
+	public Collection<Patient> findAllPatients() {
 		// TODO Auto-generated method stub
 		Query req = em.createQuery("select p from Patient p");
 		return req.getResultList();

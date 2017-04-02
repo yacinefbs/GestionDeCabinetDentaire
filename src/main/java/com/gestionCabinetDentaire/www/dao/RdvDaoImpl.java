@@ -50,5 +50,11 @@ public class RdvDaoImpl implements IRdvDao {
 		Query req = em.createQuery("select r from Rdv r");
 		return req.getResultList();
 	}
+	@Override
+	public List<Rdv> findRdsByPatientID(Long idPatient) {
+		// TODO Auto-generated method stub
+		Query req = em.createQuery("select r from Rdv r where idPatient=" + idPatient);
+		return req.getResultList();
+	}
 
 }
