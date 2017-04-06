@@ -89,16 +89,16 @@ public class PatientController {
 	@RequestMapping(value="/ajouterPatient")
 	public String ajouterPatient(@Valid PatientForm pf, BindingResult bindingResult, Model model){
 		System.out.println("nom : " + pf.getPatient().getNom());
-		metierCategorie.ajouterCategorie(new Categorie("naouiCat"));
-		metierDossier.ajouterDossier(new Dossier(new Date(), "seance1", "remarque1"));
-		metierInfirmier.ajouterInfirmier(new Infirmier("yacinefbsInf", "123Inf"));
-		metierMedecin.ajouterMedecin(new Medecin("medecin", "medecin"));
-		metierOrdonance.ajouterOrdonance(new Ordonance("titre1", new Date(), "obs1", "traitement1"));
-		metierPaiement.ajouterpaiement(new Paiement(1, "observation", 100, "typePaiement"));
-		metierRdv.ajouterRdv(new Rdv(new Date(), new Date(), "motif"));
-		metierSecretaire.ajouterSecretaire(new Secretaire("sec1", "sec1"));
-		metierSpecialite.ajouterSpecialite(new Specialite("spec"));
-		metierVisite.ajouterVisite(new Visite());
+//		metierCategorie.ajouterCategorie(new Categorie("naouiCat"));
+//		metierDossier.ajouterDossier(new Dossier(new Date(), "seance1", "remarque1"));
+//		metierInfirmier.ajouterInfirmier(new Infirmier("yacinefbsInf", "123Inf"));
+//		metierMedecin.ajouterMedecin(new Medecin("medecin", "medecin"));
+//		metierOrdonance.ajouterOrdonance(new Ordonance("titre1", new Date(), "obs1", "traitement1"));
+//		metierPaiement.ajouterpaiement(new Paiement(1, "observation", 100, "typePaiement"));
+//		metierRdv.ajouterRdv(new Rdv(new Date(), new Date(), "motif"));
+//		metierSecretaire.ajouterSecretaire(new Secretaire("sec1", "sec1"));
+//		metierSpecialite.ajouterSpecialite(new Specialite("spec"));
+//		metierVisite.ajouterVisite(new Visite());
 		
 		
 		pf.getPatient().setDossiers(metierDossier.findDossiersByPatientID(0L));

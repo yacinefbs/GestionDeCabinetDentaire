@@ -68,4 +68,16 @@ public class Dossier implements Serializable {
 	public void setRemarque(String remarque) {
 		this.remarque = remarque;
 	}
+	public Patient getPatient() {
+		return patient;
+	}
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+	public Medecin getMedecin() {
+		return medecin;
+	}
+	public void setMedecin(Medecin medecin) {
+		this.medecin = medecin;
+	}
 }

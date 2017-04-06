@@ -1,5 +1,5 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    
-    <link rel="stylesheet" href="resources/plugins/datatables/dataTables.bootstrap.css">
     <!-- daterange picker -->
     <link rel="stylesheet" href="resources/plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- iCheck for checkboxes and radio inputs -->
@@ -524,7 +522,7 @@
             <div class="col-md-12">
               <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">La liste des patients</h3>
+                  <h3 class="box-title">Monthly Recap Report</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     <div class="btn-group">
@@ -541,46 +539,128 @@
                   </div>
                 </div><!-- /.box-header -->
 
-              <div class="box-body">
-                <div class="row">
-                <div class="box-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Date</th>
-                        <th>Séance</th>
-                        <th>Remarque</th>
-                        <th>Modifier</th>
-                        <th>Supprimer</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${listDossiers.dossiers}" var="d">
-                      <tr>
-                        <td>${d.idDossier}</td>
-                        <td>${d.date}</td>
-                        <td>${d.seance}</td>
-                        <td>${d.remarque}</td>
-                        <td><a href="editerDossier?idDossier=${d.idDossier}">Modifier</a></td>
-                        <td><a href="supprimerDossier?idDossier=${d.idDossier}">Supprimer</a></td>
-                      </tr>
-                      </c:forEach>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <th>ID</th>
-                        <th>Date</th>
-                        <th>Séance</th>
-                        <th>Remarque</th>
-                        <th>Modifier</th>
-                        <th>Supprimer</th>
-                      </tr>
-                    </tfoot>
-                  </table>
+	                <div class="box-body">
+	                  <div class="row">
+	                    <div class="col-md-6">
+							<label>Sexe :</label><br />
+							<f:select path="patient.sexe" class="form-control select2" style="width: 100%;">
+								<f:option value="Mr">Mr</f:option>
+								<f:option value="Mlle">Mlle</f:option>
+								<f:option value="Mme">Mme</f:option>
+							</f:select>
+							<f:errors path="patient.sexe" />
+	                    </div>
+	                    <div class="col-md-6">
+							<label>Nom :</label> 
+							<f:input path="patient.nom" class="form-control input-sm" />
+							<f:errors path="patient.nom" />
+	                    </div>
+         	            <div class="col-md-12">
+         	            </div>
+	                    <div class="col-md-6">
+							<label>Prénom :</label>
+							<f:input path="patient.prenom" class="form-control input-sm" />
+							<f:errors path="patient.prenom" />
+	                    </div>
+	                    <div class="col-md-6">
+							<label>Profession :</label>
+							<f:input path="patient.profession" class="form-control input-sm" />
+							<f:errors path="patient.profession" />
+	                    </div>
+	                    <div class="col-md-12">
+         	            </div>
+	                    <div class="col-md-6">
+							<label>Date de naissance :</label>
+							<f:input path="patient.dateNaissance" class="form-control input-sm" />
+							<f:errors path="patient.dateNaissance" />
+	                    </div>
+	                    <div class="col-md-6">
+							<label>CIN :</label>
+							<f:input path="patient.cin" class="form-control input-sm" />
+							<f:errors path="patient.cin" />
+	                    </div>
+	                  </div><!-- /.row -->
+	                </div><!-- ./box-body -->
               </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+          
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Monthly Recap Report</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <div class="btn-group">
+                      <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i></button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+	                <div class="box-body">
+	                  <div class="row">
+	                    <div class="col-md-6">
+							<label>Téléphone :</label>
+							<div class="input-group">
+		                      <div class="input-group-addon">
+		                        <i class="fa fa-phone"></i>
+		                      </div>
+							<f:input path="patient.tel" class="form-control" />
+							<f:errors path="patient.tel" />
+							</div>
+	                    </div>
+	                    <div class="col-md-6">
+							<label>Adresse :</label>
+							<f:textarea path="patient.adresse" row="1" class="form-control input-sm" />
+							<f:errors path="patient.adresse" />
+	                    </div>
+	                    <div class="col-md-6">
+							<label>Ville :</label>
+							<f:input path="patient.ville" class="form-control input-sm" />
+							<f:errors path="patient.ville" />
+	                    </div>
+	                    <div class="col-md-6">
+							<label>Email :</label>
+							<f:input path="patient.email" class="form-control input-sm" />
+							<f:errors path="patient.email" />
+	                    </div>
+	                  </div><!-- /.row -->
+	                </div><!-- ./box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
 
-	                    
+		  <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Monthly Recap Report</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <div class="btn-group">
+                      <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i></button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+	                <div class="box-body">
+	                  <div class="row">
+	                  <input type="submit" value="ajouter patient" />
 	                  </div><!-- /.row -->
 	                </div><!-- ./box-body -->
               </div><!-- /.box -->
@@ -785,9 +865,6 @@
     <script src="resources/plugins/timepicker/bootstrap-timepicker.min.js"></script>
     <!-- SlimScroll 1.3.0 -->
     <script src="resources/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    
-    <script src="resources/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="resources/plugins/datatables/dataTables.bootstrap.min.js"></script>
     <!-- iCheck 1.0.1 -->
     <script src="resources/plugins/iCheck/icheck.min.js"></script>
     <!-- FastClick -->
@@ -856,19 +933,6 @@
         //Timepicker
         $(".timepicker").timepicker({
           showInputs: false
-        });
-      });
-    </script>
-    <script>
-      $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false
         });
       });
     </script>

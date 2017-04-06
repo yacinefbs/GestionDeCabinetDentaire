@@ -1,5 +1,5 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    
-    <link rel="stylesheet" href="resources/plugins/datatables/dataTables.bootstrap.css">
     <!-- daterange picker -->
     <link rel="stylesheet" href="resources/plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- iCheck for checkboxes and radio inputs -->
@@ -519,12 +517,12 @@
             </div><!-- /.col -->
           </div><!-- /.row -->
 		
-		<f:form modelAttribute="patientForm" method="post" action="ajouterPatient">
+		<f:form modelAttribute="dossier" method="post" action="modifierDossier">
           <div class="row">
             <div class="col-md-12">
               <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">La liste des patients</h3>
+                  <h3 class="box-title">Monthly Recap Report</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     <div class="btn-group">
@@ -540,52 +538,62 @@
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                   </div>
                 </div><!-- /.box-header -->
+                <font color="red">
+                <f:errors path="*"/>
+                </font>	
+                	
+					<f:hidden path="dossier.idDossier" />
+	                <div class="box-body">
+	                  <div class="row">
+	                    <div class="col-md-6">
+							<label>Date :</label> 
+							<f:input path="dossier.date" class="form-control input-sm" />
+							<f:errors path="dossier.date" />
+	                    </div>
+	                    <div class="col-md-6">
+							<label>Séance :</label>
+							<f:input path="dossier.seance" class="form-control input-sm" />
+							<f:errors path="dossier.seance" />
+	                    </div>
+	                    <div class="col-md-12">
+         	            </div>
+	                    <div class="col-md-6">
+							<label>Remarque :</label>
+							<f:textarea path="dossier.remarque" class="form-control input-sm" />
+							<f:errors path="dossier.remarque" />
+	                    </div>
+	                    <br /><br /><br /><br /><br /><br /><br />
+         	            
+         	            <div class="col-md-6">
+         	            	<label>Medecin : </label>
+         	            	<f:select path="dossier.medecin.idPersonne" class="form-control input-sm">
+         	            		<f:option value="35" selected="true" >Medecin</f:option>
+         	            		<f:option value="36">Medecin1</f:option>
+<%--          	            		<f:options items="${medecins}" itemLabel="username" /> --%>
+         	            	</f:select>
+         	            </div>
+         	            <div class="col-md-6">
+         	            	<label>Patient : </label>
+         	            	<f:select path="dossier.patient.idPersonne" class="form-control input-sm">
+         	            		<f:option value="30">NAOUI</f:option>
+         	            		<f:option value="34">AFSAL</f:option>
+<%--          	            		<f:options items="${medecins}" itemLabel="username" /> --%>
+         	            	</f:select>
+         	            </div>
+         	            
+         	            <div class="col-md-12">
+         	            <input type="submit" value="Modifier Dossier" />
+         	            </div>
+						
 
-              <div class="box-body">
-                <div class="row">
-                <div class="box-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Date</th>
-                        <th>Séance</th>
-                        <th>Remarque</th>
-                        <th>Modifier</th>
-                        <th>Supprimer</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${listDossiers.dossiers}" var="d">
-                      <tr>
-                        <td>${d.idDossier}</td>
-                        <td>${d.date}</td>
-                        <td>${d.seance}</td>
-                        <td>${d.remarque}</td>
-                        <td><a href="editerDossier?idDossier=${d.idDossier}">Modifier</a></td>
-                        <td><a href="supprimerDossier?idDossier=${d.idDossier}">Supprimer</a></td>
-                      </tr>
-                      </c:forEach>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <th>ID</th>
-                        <th>Date</th>
-                        <th>Séance</th>
-                        <th>Remarque</th>
-                        <th>Modifier</th>
-                        <th>Supprimer</th>
-                      </tr>
-                    </tfoot>
-                  </table>
-              </div><!-- /.box -->
-
-	                    
 	                  </div><!-- /.row -->
 	                </div><!-- ./box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
+          
+
+		 
 		</f:form>
 
 
@@ -785,9 +793,6 @@
     <script src="resources/plugins/timepicker/bootstrap-timepicker.min.js"></script>
     <!-- SlimScroll 1.3.0 -->
     <script src="resources/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    
-    <script src="resources/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="resources/plugins/datatables/dataTables.bootstrap.min.js"></script>
     <!-- iCheck 1.0.1 -->
     <script src="resources/plugins/iCheck/icheck.min.js"></script>
     <!-- FastClick -->
@@ -856,19 +861,6 @@
         //Timepicker
         $(".timepicker").timepicker({
           showInputs: false
-        });
-      });
-    </script>
-    <script>
-      $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false
         });
       });
     </script>
