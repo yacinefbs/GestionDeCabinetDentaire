@@ -108,7 +108,7 @@ public class PatientController {
 		PatientForm patientForm = new PatientForm();
 		model.addAttribute("patientForm", patientForm);
 		
-		System.out.println("Ajout avec succès !!!");
+		System.out.println("Ajout avec succès - patient !!!");
 		return "ajouterPatient";
 	}
 	
@@ -165,10 +165,10 @@ public class PatientController {
 		p = metierPatient.modifierPatient(pf.getPatient());
 		
 		//Message of success
-		redirectAttributes.addFlashAttribute("SUCCESS_MESSAGE", "Les informations de ce patient sont mises à jour !!!");
+//		redirectAttributes.addFlashAttribute("SUCCESS_MESSAGE", "Les informations de ce patient sont mises à jour !!!");
 		
 		model.addAttribute("patientForm", new PatientForm());
-		return "editerPatient";
+		return "editerPatient"; //return "redirect:addNew/success";
 	}
 	
 	

@@ -517,7 +517,7 @@
             </div><!-- /.col -->
           </div><!-- /.row -->
 		
-		<f:form modelAttribute="patientForm" method="post" action="modifierPatient">
+		<f:form modelAttribute="rdvForm" method="post" action="ajouterRdv">
           <div class="row">
             <div class="col-md-12">
               <div class="box">
@@ -538,133 +538,43 @@
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                   </div>
                 </div><!-- /.box-header -->
-                <font color="red">
-                <f:errors path="*"/>
-                </font>	
-                	
-					<f:hidden path="patient.idPersonne" />
+
 	                <div class="box-body">
 	                  <div class="row">
 	                    <div class="col-md-6">
-							<label>Sexe :</label><br />
-							<f:select path="patient.sexe" class="form-control select2" style="width: 100%;">
-								<f:option value="Mr">Mr</f:option>
-								<f:option value="Mlle">Mlle</f:option>
-								<f:option value="Mme">Mme</f:option>
-							</f:select>
-							<f:errors path="patient.sexe" />
+							<label>Date :</label> 
+							<f:input path="rdv.date" class="form-control input-sm" />
+							<f:errors path="rdv.date" />
 	                    </div>
 	                    <div class="col-md-6">
-							<label>Nom :</label> 
-							<f:input path="patient.nom" class="form-control input-sm" />
-							<f:errors path="patient.nom" />
-	                    </div>
-         	            <div class="col-md-12">
-         	            </div>
-	                    <div class="col-md-6">
-							<label>Prénom :</label>
-							<f:input path="patient.prenom" class="form-control input-sm" />
-							<f:errors path="patient.prenom" />
-	                    </div>
-	                    <div class="col-md-6">
-							<label>Profession :</label>
-							<f:input path="patient.profession" class="form-control input-sm" />
-							<f:errors path="patient.profession" />
+							<label>Heure :</label>
+							<f:input path="rdv.heure" class="form-control input-sm" />
+							<f:errors path="rdv.heure" />
 	                    </div>
 	                    <div class="col-md-12">
          	            </div>
-	                    <div class="col-md-6">
-							<label>Date de naissance :</label>
-							<f:input path="patient.dateNaissance" class="form-control input-sm" />
-							<f:errors path="patient.dateNaissance" />
-	                    </div>
-	                    <div class="col-md-6">
-							<label>CIN :</label>
-							<f:input path="patient.cin" class="form-control input-sm" />
-							<f:errors path="patient.cin" />
-	                    </div>
-	                  </div><!-- /.row -->
-	                </div><!-- ./box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-          
-          <div class="row">
-            <div class="col-md-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Monthly Recap Report</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <div class="btn-group">
-                      <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i></button>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                      </ul>
-                    </div>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div><!-- /.box-header -->
-	                <div class="box-body">
-	                  <div class="row">
-	                    <div class="col-md-6">
-							<label>Téléphone :</label>
-							<div class="input-group">
-		                      <div class="input-group-addon">
-		                        <i class="fa fa-phone"></i>
-		                      </div>
-							<f:input path="patient.tel" class="form-control" />
-							<f:errors path="patient.tel" />
-							</div>
-	                    </div>
-	                    <div class="col-md-6">
-							<label>Adresse :</label>
-							<f:textarea path="patient.adresse" row="1" class="form-control input-sm" />
-							<f:errors path="patient.adresse" />
-	                    </div>
-	                    <div class="col-md-6">
-							<label>Ville :</label>
-							<f:input path="patient.ville" class="form-control input-sm" />
-							<f:errors path="patient.ville" />
-	                    </div>
-	                    <div class="col-md-6">
-							<label>Email :</label>
-							<f:input path="patient.email" class="form-control input-sm" />
-							<f:errors path="patient.email" />
-	                    </div>
-	                  </div><!-- /.row -->
-	                </div><!-- ./box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-
-		  <div class="row">
-            <div class="col-md-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Monthly Recap Report</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <div class="btn-group">
-                      <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i></button>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                      </ul>
-                    </div>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div><!-- /.box-header -->
-	                <div class="box-body">
-	                  <div class="row">
-	                  <input type="submit" value="ajouter patient" />
+         	            <div class="col-md-6">
+         	            	<label>Medecin : </label>
+         	            	<f:select path="rdv.medecin.idPersonne">
+         	            		<f:option value="NONE">----Select-----</f:option>
+         	            		<f:option value="35" selected="true" >Medecin</f:option>
+         	            		<f:option value="36">Medecin1</f:option>
+<%--          	            		<f:options items="${medecins}" itemLabel="username" /> --%>
+         	            	</f:select>
+         	            </div>
+         	            <div class="col-md-6">
+         	            	<label>Patient : </label>
+         	            	<f:select path="rdv.patient.idPersonne">
+         	            		<f:option value="NONE">----Select-----</f:option>
+         	            		<f:option value="30">NAOUI</f:option>
+         	            		<f:option value="34">AFSAL</f:option>
+<%--          	            		<f:options items="${medecins}" itemLabel="username" /> --%>
+         	            	</f:select>
+         	            </div>
+						<br /><br /><br /><br />
+	                     <div class="col-md-6">
+		                  <input type="submit" value="ajouter patient" />
+		                </div><!-- ./box-body -->
 	                  </div><!-- /.row -->
 	                </div><!-- ./box-body -->
               </div><!-- /.box -->
